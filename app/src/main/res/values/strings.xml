@@ -1,0 +1,29 @@
+<resources>
+    <string name="facebook_app_id">288245981670148</string>
+    <string name="fb_login_protocol_scheme">fb288245981670148</string>
+
+    <string name="app_name">BusOnTime</string>
+    <string name="title_activity_mapa">Mapa</string>
+    <string name="title_activity_inicio">inicio</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">Main</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="registrate">¡Hola! Registrate</string>
+    <string name="nombre">Nombre</string>
+    <string name="apaterno">Apellido Paterno</string>
+    <string name="amaterno">Apellido Materno</string>
+    <string name="email">Email</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="confcontrasenia">Confirmar Contraseña</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="regteminos">Al dar clic en "Registrarse" aceptas los terminos y condiciones de uso</string>
+
+</resources>

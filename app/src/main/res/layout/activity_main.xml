@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFF"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context="bus.proyecto.busontime.MainActivity">
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="15dp" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="10dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="304dp"
+        android:layout_height="148dp"
+        app:srcCompat="@mipmap/logobueno1"
+        android:layout_weight="0.71" />
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="50dp" />
+
+    <Button
+        android:id="@+id/iniciar"
+        style="@style/boton"
+        android:textSize="20sp"
+        android:text="Iniciar sesión" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="5dp" />
+
+    <Button
+        android:id="@+id/registrarse"
+        style="@style/boton"
+        android:textSize="20sp"
+        android:text="Registrarse" />
+
+</LinearLayout>
