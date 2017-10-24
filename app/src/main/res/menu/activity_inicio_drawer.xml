@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/bmenuvaloranos"
+            android:icon="@drawable/valoranos"
+            android:title="Valoranos" />
+        <item
+            android:id="@+id/bmenucompartela"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Compartela" />
+        <item
+            android:id="@+id/bmenuacercade"
+            android:icon="@drawable/acercade"
+            android:title="Acerca de" />
+
+    </group>
+</menu>

@@ -16,7 +16,7 @@ public class Iniciar_Sesion extends AppCompatActivity {
         inciarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Iniciar_Sesion.this,Descripcion_Bus.class);
+                Intent intent = new Intent(Iniciar_Sesion.this,Inicio.class);
                 startActivity(intent);
             }
         });
