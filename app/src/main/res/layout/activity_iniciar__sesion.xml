@@ -12,32 +12,33 @@
     <android.support.v4.widget.Space
         android:layout_width="0dp"
         android:layout_height="40dp" />
+
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="top"
-        android:textSize="30sp"
-        android:textColor="#FFFF"
+        style="@style/textotitulo"
         android:text="¡Bienvenido! Inicia Sesión" />
     <android.support.v4.widget.Space
         android:layout_width="0dp"
         android:layout_height="110dp" />
+
     <EditText
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        style="@style/textfiel"
         android:hint="E-mail"
-        android:textColorHint="#FFFF"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white" />
+
     <android.support.v4.widget.Space
         android:layout_width="0dp"
         android:layout_height="40dp" />
+
     <EditText
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        style="@style/textfiel"
         android:hint="Contraseña"
-        android:textColorHint="#FFFF"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white" />
     <android.support.v4.widget.Space
         android:layout_width="0dp"
         android:layout_height="50dp" />
@@ -48,10 +49,10 @@
     <android.support.v4.widget.Space
         android:layout_width="0dp"
         android:layout_height="30dp" />
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/textosecundario"
         android:text="¿Olvidaste tu contraseña?"
-        android:textColor="#FFFF"/>
+        android:textColor="@android:color/background_light" />
 
 </LinearLayout>

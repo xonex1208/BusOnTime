@@ -47,7 +47,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Registro" />
+        <activity android:name=".Registro" android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" />
         <activity android:name=".Iniciar_Sesion" />
         <activity android:name=".Descripcion_Bus" />
         <!--

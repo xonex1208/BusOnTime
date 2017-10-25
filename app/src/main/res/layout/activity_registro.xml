@@ -27,11 +27,9 @@
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textotitulo"
                 android:text="¡Hola! Registrate"
-                android:textColor="#FFFF"
-                android:textSize="45sp" />
+                android:textColor="#FFFF" />
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
@@ -69,73 +67,52 @@
                 android:layout_height="20dp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="o con tu e-mail"
-                android:textColor="#FFFF"
-                android:textSize="20sp" />
+                style="@style/textosecundariowhite"
+                android:text="o con tu e-mail" />
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="20dp" />
 
             <EditText
+                style="@style/textfielwhite"
                 android:id="@+id/email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
                 android:hint="E-mail"
-                android:inputType="textEmailAddress"
-                android:textColorHint="#FFFF" />
+                android:inputType="textEmailAddress"/>
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="20dp" />
 
             <EditText
+                style="@style/textfielwhite"
                 android:id="@+id/contrasena"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
                 android:hint="Contraseña"
-                android:inputType="textPassword"
-                android:textColorHint="#FFFF"
-                android:visibility="visible" />
+                android:inputType="textPassword" />
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="20dp" />
 
             <EditText
+                style="@style/textfielwhite"
                 android:id="@+id/repetir_contrasena"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
                 android:hint="Repetir Contraseña"
-                android:inputType="textPassword"
-                android:textColorHint="#FFFF" />
+                android:inputType="textPassword"/>
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="20dp" />
 
             <EditText
+                style="@style/textfielwhite"
                 android:id="@+id/nombre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
                 android:hint="Nombre Completo"
-                android:inputType="text"
-                android:textColorHint="#FFFF" />
+                android:inputType="text" />
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="20dp" />
-
-            <Spinner
-                android:id="@+id/sexo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/btn_registro"
@@ -149,14 +126,9 @@
                 android:layout_height="9dp" />
 
             <TextView
+                style="@style/textosecundariowhite"
                 android:id="@+id/editText2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-
-                android:text="Al dar clic en Registrarse, aceptas los terminos y condiciones de uso"
-                android:textAlignment="center"
-                android:textColor="#FFFF" />
+                android:text="Al dar clic en Registrarse, aceptas los terminos y condiciones de uso" />
 
             <TextView
                 android:id="@+id/TV_name"

@@ -10,7 +10,7 @@
 
     <style name="TemaInicio" parent="AppTheme.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimaryDark">@color/barColor</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -34,6 +34,11 @@
         <item name="android:textColor">@color/primary_text</item>
     </style>
 
+    <style name="textfielwhite" parent="textfiel">
+        <item name="android:textColorHint">#FFFFFF</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
     <style name="textotitulo">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -43,11 +48,19 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="textotitulowhite" parent="textotitulo">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
     <style name="textosecundario">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/secondary_text</item>
         <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="textosecundariowhite" parent="textosecundario">
+        <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
