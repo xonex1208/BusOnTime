@@ -16,6 +16,7 @@
     <TextView
         android:id="@+id/textView"
         style="@style/textotitulo"
+        android:textColor="#FFFF"
         android:text="¡Bienvenido! Inicia Sesión" />
     <android.support.v4.widget.Space
         android:layout_width="0dp"

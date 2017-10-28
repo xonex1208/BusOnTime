@@ -54,7 +54,7 @@ public class Registro extends AppCompatActivity {
 
             @Override
             public void onCancel() {
-                Toast.makeText(Registro.this,"Ha cancelado el registro",Toast.LENGTH_LONG);
+                Toast.makeText(Registro.this,"Ha cancelado el registro",Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -77,6 +77,9 @@ public class Registro extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        //Bundle datos = new Bundle();
+        //TextView nombre;
+       // nombre=(TextView) findViewById(R.id.TV_name);
 
         TextView tv_name,tv_email,tv_id;
         tv_name=(TextView)findViewById(R.id.TV_name);

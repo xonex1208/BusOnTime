@@ -1,5 +1,7 @@
 package bus.proyecto.busontime;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -27,8 +29,10 @@ public class Inicio extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
     private GoogleMap mMap;
     private MapView mapView;
+    Context contexto=this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -86,6 +90,7 @@ public class Inicio extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this,ConfiguracionBus.class));
             return true;
         }
 
@@ -98,6 +103,11 @@ public class Inicio extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         //colocar opciones
+        switch (id){
+            case R.id.bmenuvaloranos:
+                startActivity(new Intent(this,Valoranos.class));
+                break;
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -123,7 +133,7 @@ public class Inicio extends AppCompatActivity
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener(){
             @Override
             public void onMapClick(LatLng latLng) {
-
+                startActivity(new Intent(contexto,PedirParadas.class));
             }
         });
 

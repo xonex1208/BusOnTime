@@ -66,6 +66,9 @@
             android:name=".Inicio"
             android:label="@string/title_activity_inicio"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ConfiguracionBus" />
+        <activity android:name=".PedirParadas" />
+        <activity android:name=".Valoranos" />
     </application>
 
 </manifest>
