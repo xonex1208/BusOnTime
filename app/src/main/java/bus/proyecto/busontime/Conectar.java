@@ -13,10 +13,12 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.JsonObject;
+
 
 import org.json.JSONObject;
 
+import java.security.Key;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -29,10 +31,12 @@ public class Conectar {
     private String url;
     private Context contexto;
     private RequestQueue queue ;
+    private ArrayList<Cordenadas> autobuses;
 
     public Conectar(Context contexto, String url) {
         this.url = url;
         this.contexto = contexto;
+        autobuses=new ArrayList();
         queue = Volley.newRequestQueue(contexto);
     }
 
@@ -82,8 +86,6 @@ public class Conectar {
             new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Log.d("Exito",response.toString());
-                    Iterator<?> permisos=response.keys();
 
                 }
             },
@@ -95,5 +97,22 @@ public class Conectar {
             }
         );
         queue.add(getRequest);
+    }
+    void actualizarAutobuses(JSONObject response){
+        ArrayList<Cordenadas> autobuses=new ArrayList();
+        try {
+            Log.d("Exito", response.toString());
+            Iterator<?> inter = response.keys();
+            while (inter.hasNext()) {
+                String key = (String) inter.next();
+                JSONObject json = response.getJSONObject(key);
+                int id=Integer.parseInt(key);
+                Double latitud=json.getDouble("latitud");
+                Double longitud=json.getDouble("longitud");
+                Double velocidad=json.getDouble("velocidad");
+                autobuses.add(new Cordenadas(id,latitud,longitud,velocidad));
+            }
+            this.autobuses=autobuses;
+        }catch (Exception e){}
     }
 }
