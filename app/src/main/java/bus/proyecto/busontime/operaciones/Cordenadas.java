@@ -1,4 +1,4 @@
-package bus.proyecto.busontime;
+package bus.proyecto.busontime.operaciones;
 
 /**
  * Created by masdz on 28/10/17.

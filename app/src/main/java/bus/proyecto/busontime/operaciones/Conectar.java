@@ -1,6 +1,5 @@
-package bus.proyecto.busontime;
+package bus.proyecto.busontime.operaciones;
 
-import android.app.DownloadManager;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
@@ -10,14 +9,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 
 import org.json.JSONObject;
 
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -31,14 +28,13 @@ public class Conectar {
     private String url;
     private Context contexto;
     private RequestQueue queue ;
-    private ArrayList<Cordenadas> autobuses;
 
     public Conectar(Context contexto, String url) {
         this.url = url;
         this.contexto = contexto;
-        autobuses=new ArrayList();
         queue = Volley.newRequestQueue(contexto);
     }
+
 
     public RequestQueue getQueue(){
         return queue;
@@ -81,27 +77,25 @@ public class Conectar {
         }
     }
 
-    public void get(String port){
-        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url,
-            new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-
-                }
-            },
-            new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Log.d("Error","Indefinido");
-                }
-            }
-        );
-        queue.add(getRequest);
-    }
-    void actualizarAutobuses(JSONObject response){
-        ArrayList<Cordenadas> autobuses=new ArrayList();
+    public void get(String port, Response.Listener<String> respuesta){
         try {
-            Log.d("Exito", response.toString());
+            StringRequest getRequest = new StringRequest(Request.Method.GET, url + port,respuesta,
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.d("Error", "Indefinido" + error);
+                        }
+                    }
+            );
+            queue.add(getRequest);
+        }catch (Exception e){}
+    }
+
+    public ArrayList<Cordenadas> convertirJson(String s){
+        ArrayList<Cordenadas> autobuses=new ArrayList();
+        JSONObject response;
+        try {
+            response=new JSONObject(s);
             Iterator<?> inter = response.keys();
             while (inter.hasNext()) {
                 String key = (String) inter.next();
@@ -110,9 +104,13 @@ public class Conectar {
                 Double latitud=json.getDouble("latitud");
                 Double longitud=json.getDouble("longitud");
                 Double velocidad=json.getDouble("velocidad");
-                autobuses.add(new Cordenadas(id,latitud,longitud,velocidad));
+                Cordenadas cor=new Cordenadas(id,latitud,longitud,velocidad);
+                autobuses.add(cor);
             }
-            this.autobuses=autobuses;
-        }catch (Exception e){}
+            return autobuses;
+        }catch (Exception e){
+            Log.d("Error",e.getMessage());
+            return new ArrayList<Cordenadas>();
+        }
     }
 }

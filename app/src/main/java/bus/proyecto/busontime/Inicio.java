@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,21 +16,30 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.android.volley.Response;
 import com.google.android.gms.maps.OnMapReadyCallback;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
+
+import bus.proyecto.busontime.operaciones.Conectar;
+import bus.proyecto.busontime.operaciones.Cordenadas;
+import bus.proyecto.busontime.operaciones.Marcador;
 
 public class Inicio extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
     private GoogleMap mMap;
     private MapView mapView;
+    private ArrayList<Marcador> marcadores= new ArrayList();
     Context contexto=this;
+    Conectar conectar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -55,6 +65,8 @@ public class Inicio extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        conectar=new Conectar(this,"http://192.168.137.1");
 
         mapView=(MapView)findViewById(R.id.map);
         if(mapView!=null){
@@ -116,10 +128,12 @@ public class Inicio extends AppCompatActivity
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        MarkerOptions marcador=new MarkerOptions();
+        marcador.draggable(true);
 
-        final LatLng uapt = new LatLng(19.196516429831817, -99.51750218868256);
+        LatLng uapt = new LatLng(19.196516429831817, -99.51750218868256);
         mMap.addMarker(new MarkerOptions().position(uapt).title("Hola we").draggable(true));
-        mMap.setMinZoomPreference(10);
+        mMap.setMinZoomPreference(0);
         mMap.setMaxZoomPreference(20);
         CameraPosition camera = new CameraPosition.Builder()
                 .target(uapt)
@@ -129,13 +143,55 @@ public class Inicio extends AppCompatActivity
                 .build();
 
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(camera));
-
-        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener(){
-            @Override
-            public void onMapClick(LatLng latLng) {
-                startActivity(new Intent(contexto,PedirParadas.class));
-            }
-        });
-
+        solicitar.start();
+        uapt=null;
     }
+
+    public void mostrarAutobuses(String respuesta) {
+        ArrayList<Cordenadas> autobuses=conectar.convertirJson(respuesta);
+        Log.d("Actualizando","cordenadas obtenidas");
+        int i = 0;
+        for (; i < marcadores.size(); i++) {
+            if (marcadores.get(i).getId() == autobuses.get(i).getId()) {
+                marcadores.get(i).setPosicion(autobuses.get(i));
+                mMap.addMarker(marcadores.get(i).getMarcador());
+                Log.d("Actualizado","Cordenada: "+autobuses.get(i).desp());
+            } else {
+                marcadores.get(i).eliminar();
+                marcadores.remove(i);
+                i--;
+                Log.d("Eliminado","Marcador eliminado");
+            }
+
+        }
+        for (; i < autobuses.size(); i++) {
+            marcadores.add(new Marcador(autobuses.get(i).getId()));
+            marcadores.get(i).setPosicion(autobuses.get(i));
+            marcadores.get(i).setTitle(autobuses.get(i).getId()+"");
+            mMap.addMarker(marcadores.get(i).getMarcador());
+            Log.d("Añadido","Cordenada: "+autobuses.get(i).desp());
+        }
+        Log.d("Actualizado","Los marcadores se actualizaron");
+    }
+
+    Response.Listener<String> actualizarAutobuses=new Response.Listener<String>() {
+        @Override
+        public void onResponse(String response) {
+            mostrarAutobuses(response);
+        }
+    };
+
+    Thread solicitar=new Thread(){
+        @Override
+        public void run() {
+            try{
+                while(true){
+                    conectar.get(":3000/OBTENERCORDENADAS2",actualizarAutobuses);
+                    sleep(1000);
+                }
+            }catch (Exception e){
+                Log.d("Error",e.getMessage());
+            }
+        }
+    };
 }
