@@ -37,7 +37,6 @@ public class Inicio extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
     private GoogleMap mMap;
     private MapView mapView;
-    private ArrayList<Marcador> marcadores= new ArrayList();
     Context contexto=this;
     Conectar conectar;
     @Override
@@ -150,25 +149,13 @@ public class Inicio extends AppCompatActivity
     public void mostrarAutobuses(String respuesta) {
         ArrayList<Cordenadas> autobuses=conectar.convertirJson(respuesta);
         Log.d("Actualizando","cordenadas obtenidas");
-        int i = 0;
-        for (; i < marcadores.size(); i++) {
-            if (marcadores.get(i).getId() == autobuses.get(i).getId()) {
-                marcadores.get(i).setPosicion(autobuses.get(i));
-                mMap.addMarker(marcadores.get(i).getMarcador());
-                Log.d("Actualizado","Cordenada: "+autobuses.get(i).desp());
-            } else {
-                marcadores.get(i).eliminar();
-                marcadores.remove(i);
-                i--;
-                Log.d("Eliminado","Marcador eliminado");
-            }
-
-        }
-        for (; i < autobuses.size(); i++) {
-            marcadores.add(new Marcador(autobuses.get(i).getId()));
-            marcadores.get(i).setPosicion(autobuses.get(i));
-            marcadores.get(i).setTitle(autobuses.get(i).getId()+"");
-            mMap.addMarker(marcadores.get(i).getMarcador());
+        mMap.clear();
+        for (int i=0; i < autobuses.size(); i++) {
+            MarkerOptions marcador=new MarkerOptions();
+            LatLng posicion=new LatLng(autobuses.get(i).getLatitud(),autobuses.get(i).getLongitud());
+            marcador.position(posicion);
+            marcador.title(autobuses.get(i).getId()+"");
+            mMap.addMarker(marcador);
             Log.d("Añadido","Cordenada: "+autobuses.get(i).desp());
         }
         Log.d("Actualizado","Los marcadores se actualizaron");
