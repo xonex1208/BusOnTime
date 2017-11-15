@@ -42,7 +42,7 @@ public class Conectar {
 
     public void post(Cordenadas param, String port){
         final String portf=port;
-        final Cordenadas paramf=param;
+        final Cordenadas paramf=param;//ya ta
         try {
             StringRequest postrequest = new StringRequest(Request.Method.POST, url+port,
                     new Response.Listener<String>() {

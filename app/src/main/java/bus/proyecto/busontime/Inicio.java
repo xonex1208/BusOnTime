@@ -65,7 +65,7 @@ public class Inicio extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        conectar=new Conectar(this,"http://192.168.137.1");
+        conectar=new Conectar(this,"http://busontime.herokuapp.com");
 
         mapView=(MapView)findViewById(R.id.map);
         if(mapView!=null){
@@ -131,7 +131,7 @@ public class Inicio extends AppCompatActivity
         marcador.draggable(true);
 
         LatLng uapt = new LatLng(19.196516429831817, -99.51750218868256);
-        mMap.addMarker(new MarkerOptions().position(uapt).title("Hola we").draggable(true));
+        //mMap.addMarker(new MarkerOptions().position(uapt).title("Hola we").draggable(true));
         mMap.setMinZoomPreference(0);
         mMap.setMaxZoomPreference(20);
         CameraPosition camera = new CameraPosition.Builder()
@@ -173,7 +173,7 @@ public class Inicio extends AppCompatActivity
         public void run() {
             try{
                 while(true){
-                    conectar.get(":3000/OBTENERCORDENADAS2",actualizarAutobuses);
+                    conectar.get("/OBTENERCORDENADAS2",actualizarAutobuses);
                     sleep(1000);
                 }
             }catch (Exception e){
