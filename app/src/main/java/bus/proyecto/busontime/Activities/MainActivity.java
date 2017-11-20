@@ -1,10 +1,12 @@
-package bus.proyecto.busontime;
+package bus.proyecto.busontime.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import bus.proyecto.busontime.R;
 
 public class MainActivity extends AppCompatActivity {
     private View btn;

@@ -18,7 +18,7 @@
         android:roundIcon="@mipmap/launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,9 +47,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Registro" android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" />
-        <activity android:name=".Iniciar_Sesion" />
-        <activity android:name=".Descripcion_Bus" />
+        <activity android:name=".Activities.Registro" android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" />
+        <activity android:name=".Activities.Iniciar_Sesion" />
+        <activity android:name=".Activities.Descripcion_Bus" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -63,12 +63,12 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".Inicio"
+            android:name=".Activities.Inicio"
             android:label="@string/title_activity_inicio"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ConfiguracionBus" />
-        <activity android:name=".PedirParadas" />
-        <activity android:name=".Valoranos" />
+        <activity android:name=".Activities.ConfiguracionBus" />
+        <activity android:name=".Activities.PedirParadas" />
+        <activity android:name=".Activities.Valoranos" />
     </application>
 
 </manifest>

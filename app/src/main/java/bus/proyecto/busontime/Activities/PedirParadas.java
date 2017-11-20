@@ -1,8 +1,10 @@
-package bus.proyecto.busontime;
+package bus.proyecto.busontime.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import bus.proyecto.busontime.R;
 
 public class PedirParadas extends AppCompatActivity {
 

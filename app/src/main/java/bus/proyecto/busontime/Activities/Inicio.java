@@ -1,4 +1,4 @@
-package bus.proyecto.busontime;
+package bus.proyecto.busontime.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,16 +22,15 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
+import bus.proyecto.busontime.R;
 import bus.proyecto.busontime.operaciones.Conectar;
 import bus.proyecto.busontime.operaciones.Cordenadas;
-import bus.proyecto.busontime.operaciones.Marcador;
 
 public class Inicio extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {

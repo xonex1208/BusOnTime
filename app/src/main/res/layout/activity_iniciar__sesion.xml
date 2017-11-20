@@ -7,7 +7,7 @@
     android:background="#03A9F4"
     android:gravity="top|center"
     android:orientation="vertical"
-    tools:context="bus.proyecto.busontime.Iniciar_Sesion">
+    tools:context="bus.proyecto.busontime.Activities.Iniciar_Sesion">
 
     <android.support.v4.widget.Space
         android:layout_width="0dp"

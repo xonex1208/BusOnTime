@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:paddingTop="0dp"
     android:weightSum="1"
-    tools:context="bus.proyecto.busontime.Descripcion_Bus">
+    tools:context="bus.proyecto.busontime.Activities.Descripcion_Bus">
 
 
     <LinearLayout

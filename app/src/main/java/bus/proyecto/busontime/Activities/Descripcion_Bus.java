@@ -1,13 +1,15 @@
-package bus.proyecto.busontime;
+package bus.proyecto.busontime.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ConfiguracionBus extends AppCompatActivity {
+import bus.proyecto.busontime.R;
+
+public class Descripcion_Bus extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_configuracion_bus);
+        setContentView(R.layout.activity_descripcion__bus);
     }
 }
