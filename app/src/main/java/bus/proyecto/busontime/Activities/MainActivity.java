@@ -11,7 +11,6 @@ import bus.proyecto.busontime.R;
 public class MainActivity extends AppCompatActivity {
     private View btn;
     private View btn2;
-    private String cad ="Registro";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,Registro.class);
-                //intent.putExtra("registro",cad);
                 startActivity(intent);
             }
         });

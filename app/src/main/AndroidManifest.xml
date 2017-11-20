@@ -46,8 +46,9 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Activities.Registro" android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" />
+        <activity
+            android:name=".Activities.Registro"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" />
         <activity android:name=".Activities.Iniciar_Sesion" />
         <activity android:name=".Activities.Descripcion_Bus" />
         <!--
@@ -65,10 +66,11 @@
         <activity
             android:name=".Activities.Inicio"
             android:label="@string/title_activity_inicio"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.ConfiguracionBus" />
         <activity android:name=".Activities.PedirParadas" />
         <activity android:name=".Activities.Valoranos" />
+        <activity android:name=".Activities.MapasContainer"></activity>
     </application>
 
 </manifest>
