@@ -35,40 +35,22 @@ public class Conectar {
         queue = Volley.newRequestQueue(contexto);
     }
 
+    public Context getContexto(){
+        return contexto;
+    }
 
     public RequestQueue getQueue(){
         return queue;
     }
 
-    public void post(Cordenadas param, String port){
+    public void post(Map<String,String> param, String port,Response.ErrorListener error, Response.Listener<String> respuesta){
         final String portf=port;
-        final Cordenadas paramf=param;//ya ta
+        final Map<String,String> paramf=param;
         try {
-            StringRequest postrequest = new StringRequest(Request.Method.POST, url+port,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            Log.d("Respuesta ",response);
-                            //Toast.makeText(contexto,response, Toast.LENGTH_LONG).show();
-                        }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    if(error!=null) {
-                        //Log.d("Error", error.getCause().getMessage());
-                        //Toast.makeText(contexto, "Idefinido ", Toast.LENGTH_LONG).show();
-                    }
-                }
-            }
-            ) {
+            StringRequest postrequest = new StringRequest(Request.Method.POST, url+port,respuesta,error) {
                 @Override
                 public Map<String, String> getParams() {
-                    Map<String, String> params = new HashMap<String, String>();
-                    params.put("id", paramf.getId() + "");
-                    params.put("latitud", paramf.getLatitud() + "");
-                    params.put("longitud", paramf.getLongitud() + "");
-                    params.put("velocidad", paramf.getVelocidad() + "");
-                    return params;
+                    return paramf;
                 }
             };
             queue.add(postrequest);
@@ -91,6 +73,8 @@ public class Conectar {
         }catch (Exception e){}
     }
 
+
+
     public ArrayList<Cordenadas> convertirJson(String s){
         ArrayList<Cordenadas> autobuses=new ArrayList();
         JSONObject response;
@@ -112,5 +96,14 @@ public class Conectar {
             Log.d("Error",e.getMessage());
             return new ArrayList<Cordenadas>();
         }
+    }
+    public void registrarPasajero(Pasajero pasajero,Response.ErrorListener error, Response.Listener<String> respuesta){
+        HashMap<String,String> param=new HashMap();
+        param.put("nombre",pasajero.getNombre());
+        param.put("apaterno",pasajero.getApaterno());
+        param.put("amaterno",pasajero.getAmaterno());
+        param.put("email",pasajero.getEmail());
+        param.put("contraseña",pasajero.getContraseña());
+        post(param,"/REGISTRARPASAJERO",error,respuesta);
     }
 }

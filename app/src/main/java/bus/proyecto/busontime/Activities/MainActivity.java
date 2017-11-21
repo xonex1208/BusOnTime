@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import bus.proyecto.busontime.R;
+import bus.proyecto.busontime.operaciones.Conectar;
+import bus.proyecto.busontime.operaciones.SVars;
 
 public class MainActivity extends AppCompatActivity {
     private View btn;
@@ -32,5 +34,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        if(SVars.conectar==null){
+            SVars.conectar=new Conectar(this,"http://busontime.herokuapp.com");
+        }
     }
 }
