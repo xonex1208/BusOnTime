@@ -54,10 +54,12 @@
                 android:layout_height="20dp" />
 
             <EditText
-                style="@style/textfielwhite"
-                android:id="@+id/email"
+                android:id="@+id/editText"
+                style="@style/textfiel"
                 android:hint="E-mail"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"

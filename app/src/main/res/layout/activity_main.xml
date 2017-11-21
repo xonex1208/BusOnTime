@@ -19,18 +19,17 @@
         android:layout_height="10dp" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="304dp"
-        android:layout_height="148dp"
-        app:srcCompat="@drawable/botreducida"
-        android:layout_weight="0.71" />
+        android:id="@+id/imageView3"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:srcCompat="@drawable/botreducida" />
 
     <android.support.v4.widget.Space
         android:layout_width="0dp"
         android:layout_height="50dp" />
 
     <Button
-        android:id="@+id/iniciar"
+        android:id="@+id/btn_login"
         style="@style/boton"
         android:text="Iniciar sesión" />
 
@@ -39,7 +38,7 @@
         android:layout_height="5dp" />
 
     <Button
-        android:id="@+id/registrarse"
+        android:id="@+id/btn_registro"
         style="@style/boton"
         android:text="Registrarse" />
 
