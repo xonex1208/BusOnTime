@@ -106,4 +106,10 @@ public class Conectar {
         param.put("contraseña",pasajero.getContraseña());
         post(param,"/REGISTRARPASAJERO",error,respuesta);
     }
+    public void login(String user,String password,Response.ErrorListener error, Response.Listener<String> respuesta){
+        HashMap<String,String> param=new HashMap();
+        param.put("email",user);
+        param.put("pass",password);
+        post(param,"/LOGINPASAJERO",error,respuesta);
+    }
 }

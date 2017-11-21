@@ -54,12 +54,10 @@
                 android:layout_height="20dp" />
 
             <EditText
-                android:id="@+id/editText"
-                style="@style/textfiel"
-                android:hint="E-mail"
-                android:inputType="textEmailAddress"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white" />
+                style="@style/textfielwhite"
+                android:id="@+id/regnombre"
+                android:hint="Nombre"
+                android:inputType="text" />
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
@@ -67,7 +65,37 @@
 
             <EditText
                 style="@style/textfielwhite"
-                android:id="@+id/contrasena"
+                android:id="@+id/regapaterno"
+                android:hint="Apellido paterno"
+                android:inputType="text" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="20dp" />
+
+            <EditText
+                style="@style/textfielwhite"
+                android:id="@+id/regamaterno"
+                android:hint="Apellido materno"
+                android:inputType="text" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="20dp" />
+
+            <EditText
+                style="@style/textfielwhite"
+                android:id="@+id/regemail"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"/>
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="20dp" />
+
+            <EditText
+                style="@style/textfielwhite"
+                android:id="@+id/regcontrasena"
                 android:hint="Contraseña"
                 android:inputType="textPassword" />
 
@@ -77,7 +105,7 @@
 
             <EditText
                 style="@style/textfielwhite"
-                android:id="@+id/repetir_contrasena"
+                android:id="@+id/regrepetir_contrasena"
                 android:hint="Repetir Contraseña"
                 android:inputType="textPassword"/>
 
@@ -85,11 +113,7 @@
                 android:layout_width="0dp"
                 android:layout_height="20dp" />
 
-            <EditText
-                style="@style/textfielwhite"
-                android:id="@+id/nombre"
-                android:hint="Nombre Completo"
-                android:inputType="text" />
+
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
