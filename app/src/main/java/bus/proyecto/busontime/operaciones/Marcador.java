@@ -1,10 +1,8 @@
 package bus.proyecto.busontime.operaciones;
 
-import com.android.volley.toolbox.StringRequest;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.internal.zzp;
 
 
 /**
@@ -12,34 +10,34 @@ import com.google.android.gms.maps.model.MarkerOptions;
  */
 
 public class Marcador{
-    private MarkerOptions marcador;
-    private int id;
-
-    public Marcador(int id){
-        marcador=new MarkerOptions();
-       // marcador.icon(imagen);
+    Marker marcador;
+    int id;
+    public Marcador(int id,Marker marcador) {
+        this.marcador=marcador;
         this.id=id;
-    }
+    };
 
-    public MarkerOptions getMarcador() {
+    public Marker getMarcador() {
         return marcador;
     }
 
-    public int getId(){
-        return id;
+    public void setMarcador(Marker marcador) {
+        this.marcador = marcador;
     }
 
-    public void eliminar(){
-        marcador=null;
+    public void setPosicion(LatLng posicion){
+        this.marcador.setPosition(posicion);
     }
 
     public void setPosicion(Cordenadas cor){
-        LatLng pos=new LatLng(cor.getLatitud(),cor.getLongitud());
-
-        marcador.position(pos);
+        this.marcador.setPosition(new LatLng(cor.getLatitud(),cor.getLongitud()));
     }
 
-    public void setTitle(String titulo){
-        marcador.title(titulo);
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

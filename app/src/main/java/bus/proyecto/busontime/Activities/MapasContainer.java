@@ -15,7 +15,7 @@ public class MapasContainer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_container);
         if (savedInstanceState==null){
-            currentFragment= new MapFragment();
+            currentFragment= new MapFragment(this);
             changeFragment(currentFragment);
         }
     }

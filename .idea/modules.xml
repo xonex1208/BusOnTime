@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BusOnTime.iml" filepath="$PROJECT_DIR$/BusOnTime.iml" />
+      <module fileurl="file://C:\Users\masdz\AndroidStudioProjects\BusOnTime3\BusOnTime.iml" filepath="C:\Users\masdz\AndroidStudioProjects\BusOnTime3\BusOnTime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BusOnTime3.iml" filepath="$PROJECT_DIR$/BusOnTime3.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
