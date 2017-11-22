@@ -97,20 +97,21 @@ public class Registro extends AppCompatActivity {
             public void onClick(View v) {
 
                 String email= texEmail.getText().toString();
-                if (Patterns.EMAIL_ADDRESS.matcher(email).matches()==false){
+                /*if (Patterns.EMAIL_ADDRESS.matcher(email).matches()==false){
                     til_mail.setError("Ingrese un correo valido");
                     mail2=false;
                 }else{
-                    til_mail.setError(null);
-                    Pasajero pasajero=new Pasajero();
-                    pasajero.setNombre(texNombre.getText()+"");
-                    pasajero.setApaterno(texApaterno.getText()+"");
-                    pasajero.setAmaterno(texMaterno.getText()+"");
-                    pasajero.setEmail(texEmail.getText()+"");
-                    pasajero.setContraseña(texPass.getText()+"");
-                    conectar.registrarPasajero(pasajero,onError,respuesta);
+
                     mail2=true;
-                }
+                }*/
+                //til_mail.setError(null);
+                Pasajero pasajero=new Pasajero();
+                pasajero.setNombre(texNombre.getText()+"");
+                pasajero.setApaterno(texApaterno.getText()+"");
+                pasajero.setAmaterno(texMaterno.getText()+"");
+                pasajero.setEmail(texEmail.getText()+"");
+                pasajero.setContraseña(texPass.getText()+"");
+                conectar.registrarPasajero(pasajero,onError,respuesta);
             }
         });
     }
