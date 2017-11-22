@@ -71,4 +71,12 @@
         <item name="android:textColor">#FFFF</item>
     </style>
 
+    <style name="Counter" parent="TextAppearance.Design.Counter">
+        <item name="android:textColor">#FFFF</item>
+    </style>
+
+    <style name="CounterOverFlow" parent="TextAppearance.Design.Counter.Overflow">
+        <item name="android:textColor">#212121</item>
+    </style>
+
 </resources>

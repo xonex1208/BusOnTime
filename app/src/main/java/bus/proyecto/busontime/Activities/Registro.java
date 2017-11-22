@@ -2,8 +2,10 @@ package bus.proyecto.busontime.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,6 +50,8 @@ public class Registro extends AppCompatActivity {
     EditText texPass;
     EditText texRepPass;
     Button bRegistrar;
+    private TextInputLayout til_mail;
+    private boolean mail2=false;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
@@ -91,13 +95,22 @@ public class Registro extends AppCompatActivity {
         bRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Pasajero pasajero=new Pasajero();
-                pasajero.setNombre(texNombre.getText()+"");
-                pasajero.setApaterno(texApaterno.getText()+"");
-                pasajero.setAmaterno(texMaterno.getText()+"");
-                pasajero.setEmail(texEmail.getText()+"");
-                pasajero.setContraseña(texPass.getText()+"");
-                conectar.registrarPasajero(pasajero,onError,respuesta);
+
+                String email= texEmail.getText().toString();
+                if (Patterns.EMAIL_ADDRESS.matcher(email).matches()==false){
+                    til_mail.setError("Ingrese un correo valido");
+                    mail2=false;
+                }else{
+                    til_mail.setError(null);
+                    Pasajero pasajero=new Pasajero();
+                    pasajero.setNombre(texNombre.getText()+"");
+                    pasajero.setApaterno(texApaterno.getText()+"");
+                    pasajero.setAmaterno(texMaterno.getText()+"");
+                    pasajero.setEmail(texEmail.getText()+"");
+                    pasajero.setContraseña(texPass.getText()+"");
+                    conectar.registrarPasajero(pasajero,onError,respuesta);
+                    mail2=true;
+                }
             }
         });
     }

@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 
 import bus.proyecto.busontime.R;
 import bus.proyecto.busontime.operaciones.Conectar;
+import bus.proyecto.busontime.operaciones.Pasajero;
 
 public class Iniciar_Sesion extends AppCompatActivity {
     private Button inciarBtn;
@@ -27,6 +28,7 @@ public class Iniciar_Sesion extends AppCompatActivity {
     private EditText correo, pass;
     boolean corr= false, password= false;
     private  String clave;
+    private String email;
     //Se usa la clase Pattern ya que contiene ciertas validaciones
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class Iniciar_Sesion extends AppCompatActivity {
         inciarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email=correo.getText().toString();
+                email=correo.getText().toString();
                 if (Patterns.EMAIL_ADDRESS.matcher(email).matches()==false ){
                     til_correo.setError("Correo no registrado");
                     corr=false;
@@ -76,11 +78,13 @@ public class Iniciar_Sesion extends AppCompatActivity {
     };
 
     private Response.Listener<String> respuesta=new Response.Listener<String>() {
+        Pasajero nombre;
         @Override
         public void onResponse(String response) {
             if(response.equals("Usuario o contraseña incorectos")) {
                 Toast.makeText(contexto, response + "", Toast.LENGTH_LONG).show();
             }else {
+                Toast.makeText(contexto,  "Bievenido: "+nombre.getNombre(), Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Iniciar_Sesion.this, MapasContainer.class);
                 startActivity(intent);
             }
