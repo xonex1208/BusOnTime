@@ -25,6 +25,7 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp" />
 
+
             <TextView
                 android:id="@+id/textView3"
                 style="@style/textotitulo"
@@ -53,61 +54,119 @@
                 android:layout_width="0dp"
                 android:layout_height="20dp" />
 
-            <EditText
-                style="@style/textfielwhite"
-                android:id="@+id/regnombre"
-                android:hint="Nombre"
-                android:inputType="text" />
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TIL_nombre"
+                android:textColorHint="@android:color/white"
+                app:hintTextAppearance="@style/Hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    style="@style/textfielwhite"
+                    android:id="@+id/regnombre"
+                    android:hint="Nombre"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="20dp" />
 
-            <EditText
-                style="@style/textfielwhite"
-                android:id="@+id/regapaterno"
-                android:hint="Apellido paterno"
-                android:inputType="text" />
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TIL_apP"
+                android:textColorHint="@android:color/white"
+                app:hintTextAppearance="@style/Hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    style="@style/textfielwhite"
+                    android:id="@+id/regapaterno"
+                    android:hint="Apellido paterno"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="20dp" />
 
-            <EditText
-                style="@style/textfielwhite"
-                android:id="@+id/regamaterno"
-                android:hint="Apellido materno"
-                android:inputType="text" />
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TIL_apM"
+                android:textColorHint="@android:color/white"
+                app:hintTextAppearance="@style/Hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    style="@style/textfielwhite"
+                    android:id="@+id/regamaterno"
+                    android:hint="Apellido materno"
+                    android:inputType="text" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="20dp" />
 
-            <EditText
-                style="@style/textfielwhite"
-                android:id="@+id/regemail"
-                android:hint="E-mail"
-                android:inputType="textEmailAddress"/>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TIL_emailR"
+                android:textColorHint="@android:color/white"
+                app:hintTextAppearance="@style/Hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    style="@style/textfielwhite"
+                    android:id="@+id/regemail"
+                    android:hint="E-mail"
+                    android:inputType="textEmailAddress"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="20dp" />
 
-            <EditText
-                style="@style/textfielwhite"
-                android:id="@+id/regcontrasena"
-                android:hint="Contraseña"
-                android:inputType="textPassword" />
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TIL_contra"
+                android:textColorHint="@android:color/white"
+                app:hintTextAppearance="@style/Hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    style="@style/textfielwhite"
+                    android:id="@+id/regcontrasena"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword" />
+
+            </android.support.design.widget.TextInputLayout>
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="20dp" />
 
-            <EditText
-                style="@style/textfielwhite"
-                android:id="@+id/regrepetir_contrasena"
-                android:hint="Repetir Contraseña"
-                android:inputType="textPassword"/>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TIL_repetirContra"
+                android:textColorHint="@android:color/white"
+                app:hintTextAppearance="@style/Hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    style="@style/textfielwhite"
+                    android:id="@+id/regrepetir_contrasena"
+                    android:hint="Repetir Contraseña"
+                    android:inputType="textPassword"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+
 
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
