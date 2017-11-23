@@ -51,7 +51,14 @@ public class Registro extends AppCompatActivity {
     EditText texRepPass;
     Button bRegistrar;
     private TextInputLayout til_mail;
-    private boolean mail2=false;
+    private TextInputLayout til_nombreR;
+    private TextInputLayout til_apPR;
+    private TextInputLayout til_apMR;
+    private TextInputLayout til_passR;
+    private TextInputLayout til_repetirpassR;
+    String nombreS ,apPS,apMS,passS,repetirpassS;
+    private boolean mail2=false,nombre2=false,apeP=false,apeM=false,pass=false,passR=false;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
@@ -92,19 +99,23 @@ public class Registro extends AppCompatActivity {
         texPass=(EditText)findViewById(R.id.regcontrasena);
         texRepPass=(EditText)findViewById(R.id.regrepetir_contrasena);
         bRegistrar=(Button)findViewById(R.id.btn_registro);
+        til_mail=(TextInputLayout)findViewById(R.id.TIL_emailR);
+
+        til_nombreR=(TextInputLayout)findViewById(R.id.TIL_nombreR);
+        til_apPR=(TextInputLayout)findViewById(R.id.TIL_apPR);
+        til_apMR=(TextInputLayout)findViewById(R.id.TIL_apMR);
+        til_passR=(TextInputLayout)findViewById(R.id.TIL_contraR);
+        til_repetirpassR=(TextInputLayout)findViewById(R.id.TIL_repetirContraR);
         bRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 String email= texEmail.getText().toString();
-                /*if (Patterns.EMAIL_ADDRESS.matcher(email).matches()==false){
+                if (Patterns.EMAIL_ADDRESS.matcher(email).matches()==false){
                     til_mail.setError("Ingrese un correo valido");
                     mail2=false;
                 }else{
-
-                    mail2=true;
-                }*/
-                //til_mail.setError(null);
+                til_mail.setError(null);
                 Pasajero pasajero=new Pasajero();
                 pasajero.setNombre(texNombre.getText()+"");
                 pasajero.setApaterno(texApaterno.getText()+"");
@@ -112,9 +123,60 @@ public class Registro extends AppCompatActivity {
                 pasajero.setEmail(texEmail.getText()+"");
                 pasajero.setContraseña(texPass.getText()+"");
                 conectar.registrarPasajero(pasajero,onError,respuesta);
+                    mail2=true;
+                }
+                nombreS= texNombre.getText().toString();
+                apPS=texApaterno.getText().toString();
+                apMS=texMaterno.getText().toString();
+                passS=texPass.getText().toString();
+                repetirpassS=texRepPass.getText().toString();
+                String mensaje="Campo obligatorio";
+                if ((nombreS.isEmpty()&&nombreS!=null)){
+                    til_nombreR.setError("Campo obligatorio");
+                    nombre2=false;
+                    apeM=false;
+                    apeP=false;
+                    pass=false;
+                    passR=false;
+                }else{
+                    til_nombreR.setError(null);
+                    nombre2=true;
+                    apeM=true;
+                    apeP=true;
+                    pass=true;
+                    passR=true;
+                }
+                if((apPS.isEmpty()&&apPS!=null)){
+                    til_apPR.setError(mensaje);
+                }else {
+
+                }
+
+                if((apMS.isEmpty()&&apMS!=null)){
+                    til_apMR.setError(mensaje);
+                }else {
+
+                }
+
+                if((passS.isEmpty()&& passS!=null)){
+                    til_passR.setError(mensaje);
+                }else {
+
+                }
+
+                if ((repetirpassS.isEmpty()&& repetirpassS!=null)){
+                    til_repetirpassR.setError(mensaje);
+                }else{
+
+                }
+
+
             }
         });
     }
+
+
+
     public void displayUserInfor(JSONObject object){
         String first_name,last_name,email,id;
         first_name="";
@@ -129,9 +191,6 @@ public class Registro extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        //Bundle datos = new Bundle();
-        //TextView nombre;
-        // nombre=(TextView) findViewById(R.id.TV_name);
 
         TextView tv_name,tv_email,tv_id;
         tv_name=(TextView)findViewById(R.id.TV_name);
@@ -141,7 +200,6 @@ public class Registro extends AppCompatActivity {
         tv_email.setText("Email: "+email);
         tv_id.setText("ID: "+id);
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

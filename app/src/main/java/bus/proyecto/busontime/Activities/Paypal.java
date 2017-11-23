@@ -15,6 +15,8 @@ import com.paypal.android.sdk.payments.PaymentConfirmation;
 
 import java.math.BigDecimal;
 
+import bus.proyecto.busontime.R;
+
 public class Paypal extends AppCompatActivity {
     TextView n_response;
     String pagar;
@@ -22,19 +24,6 @@ public class Paypal extends AppCompatActivity {
     String n_paypalClientID = "AQXRF88MY7wYYULOpPcRMq-cw-r8QfLNcojKeivaEaCxFFZOK5jZcTW8aBTOFJh-O09CcR3OpKLO9ZvD";
     Intent n_service;
     int paypalRequestCode = 999;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_paypal);
-
-        n_response = (TextView) findViewById(R.id.response);
-        n_configuration = new PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_SANDBOX).clientId(n_paypalClientID);
-        n_service = new Intent(this, PayPalService.class);
-        n_service.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, n_configuration);
-        startService(n_service);
-
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -40,7 +40,7 @@ public class Iniciar_Sesion extends AppCompatActivity {
         correo=(EditText) findViewById(R.id.editText_correo);
         pass=(EditText)findViewById(R.id.editText_pass);
         til_correo=(TextInputLayout)findViewById(R.id.TIL_email);
-        til_pass=(TextInputLayout)findViewById(R.id.TIL_pass);
+
 
 
         inciarBtn.setOnClickListener(new View.OnClickListener() {

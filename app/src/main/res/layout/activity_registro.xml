@@ -55,7 +55,7 @@
                 android:layout_height="20dp" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/TIL_nombre"
+                android:id="@+id/TIL_nombreR"
                 android:textColorHint="@android:color/white"
                 app:hintTextAppearance="@style/Hint"
                 android:layout_width="wrap_content"
@@ -74,7 +74,7 @@
                 android:layout_height="20dp" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/TIL_apP"
+                android:id="@+id/TIL_apPR"
                 android:textColorHint="@android:color/white"
                 app:hintTextAppearance="@style/Hint"
                 android:layout_width="wrap_content"
@@ -91,7 +91,7 @@
                 android:layout_height="20dp" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/TIL_apM"
+                android:id="@+id/TIL_apMR"
                 android:textColorHint="@android:color/white"
                 app:hintTextAppearance="@style/Hint"
                 android:layout_width="wrap_content"
@@ -133,7 +133,7 @@
                 android:layout_height="20dp" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/TIL_contra"
+                android:id="@+id/TIL_contraR"
                 android:textColorHint="@android:color/white"
                 app:hintTextAppearance="@style/Hint"
                 android:layout_width="wrap_content"
@@ -152,7 +152,7 @@
                 android:layout_height="20dp" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/TIL_repetirContra"
+                android:id="@+id/TIL_repetirContraR"
                 android:textColorHint="@android:color/white"
                 app:hintTextAppearance="@style/Hint"
                 android:layout_width="wrap_content"
