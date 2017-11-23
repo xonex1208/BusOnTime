@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.paypal.sdk:paypal-android-sdk-2.14.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/paypal-android-sdk-2.14.4.aar/01d9a303c2c7eadbf6c1abfe48385166/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/paypal-android-sdk-2.14.4.aar/01d9a303c2c7eadbf6c1abfe48385166/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

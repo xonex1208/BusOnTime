@@ -1,9 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
+    android:orientation="vertical"
     tools:context="bus.proyecto.busontime.Activities.Paypal">
 
-</android.support.constraint.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="372dp"
+        android:layout_height="229dp"
+        app:srcCompat="@drawable/paypal" />
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonpay"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_dark"
+            android:onClick="pago"
+            android:text="pagar"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="195dp" />
+
+
+    <TextView
+        android:id="@+id/response"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textAlignment="center"
+
+        />
+
+
+</LinearLayout>
