@@ -40,6 +40,7 @@ public class Iniciar_Sesion extends AppCompatActivity {
         correo=(EditText) findViewById(R.id.editText_correo);
         pass=(EditText)findViewById(R.id.editText_pass);
         til_correo=(TextInputLayout)findViewById(R.id.TIL_email);
+        til_pass=(TextInputLayout)findViewById(R.id.TIL_pass);
 
 
 
@@ -84,7 +85,7 @@ public class Iniciar_Sesion extends AppCompatActivity {
             if(response.equals("Usuario o contraseña incorectos")) {
                 Toast.makeText(contexto, response + "", Toast.LENGTH_LONG).show();
             }else {
-                Toast.makeText(contexto,  "Bievenido: "+nombre.getNombre(), Toast.LENGTH_LONG).show();
+                Toast.makeText(contexto,  "Bievenido: ", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Iniciar_Sesion.this, MapasContainer.class);
                 startActivity(intent);
             }

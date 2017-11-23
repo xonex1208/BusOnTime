@@ -132,42 +132,44 @@ public class Registro extends AppCompatActivity {
                 repetirpassS=texRepPass.getText().toString();
                 String mensaje="Campo obligatorio";
                 if ((nombreS.isEmpty()&&nombreS!=null)){
-                    til_nombreR.setError("Campo obligatorio");
+                    til_nombreR.setError(mensaje);
                     nombre2=false;
-                    apeM=false;
-                    apeP=false;
-                    pass=false;
-                    passR=false;
                 }else{
                     til_nombreR.setError(null);
                     nombre2=true;
-                    apeM=true;
-                    apeP=true;
-                    pass=true;
-                    passR=true;
+
                 }
                 if((apPS.isEmpty()&&apPS!=null)){
                     til_apPR.setError(mensaje);
+                    apeP=false;
                 }else {
-
+                    til_apPR.setError(null);
+                    apeP=true;
                 }
 
                 if((apMS.isEmpty()&&apMS!=null)){
                     til_apMR.setError(mensaje);
+                    apeM=false;
                 }else {
-
+                    til_apMR.setError(null);
+                    apeM=true;
                 }
 
                 if((passS.isEmpty()&& passS!=null)){
                     til_passR.setError(mensaje);
+                    pass=false;
                 }else {
+                    til_passR.setError(null);
+                    pass=true;
 
                 }
 
                 if ((repetirpassS.isEmpty()&& repetirpassS!=null)){
                     til_repetirpassR.setError(mensaje);
+                    passR=false;
                 }else{
-
+                    til_repetirpassR.setError(mensaje);
+                    passR=true;
                 }
 
 

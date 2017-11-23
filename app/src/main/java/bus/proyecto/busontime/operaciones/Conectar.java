@@ -106,10 +106,27 @@ public class Conectar {
         param.put("contraseña",pasajero.getContraseña());
         post(param,"/REGISTRARPASAJERO",error,respuesta);
     }
-    public void login(String user,String password,Response.ErrorListener error, Response.Listener<String> respuesta){
-        HashMap<String,String> param=new HashMap();
-        param.put("email",user);
-        param.put("pass",password);
-        post(param,"/LOGINPASAJERO",error,respuesta);
+    public void login(String user,String password,Response.ErrorListener error, Response.Listener<String> respuesta) {
+        HashMap<String, String> param = new HashMap();
+        param.put("email", user);
+        param.put("pass", password);
+        post(param, "/LOGINPASAJERO", error, respuesta);
+
+    }
+    public Pasajero convertirPasajero(String pasajero){
+        JSONObject pas;
+        try {
+            pas=new JSONObject(pasajero);
+            Pasajero pas1= new Pasajero();
+            pas1.setNombre(pas.getString("nombre"));
+            pas1.setApaterno(pas.getString("apaterno"));
+            pas1.setAmaterno(pas.getString("amaterno"));
+            pas1.setEmail(pas.getString("email"));
+            pas1.setContraseña(pas.getString("contraseña"));
+            return  pas1;
+        }catch (Exception e) {
+            Log.v("Error",e.getMessage());
+            return null;
+        }
     }
 }
