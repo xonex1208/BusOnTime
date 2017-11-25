@@ -5,12 +5,12 @@ package bus.proyecto.busontime.operaciones;
  */
 
 public class Cordenadas {
-    private int id;
+    private String id;
     private double latitud;
     private double longitud;
     private double velocidad;
 
-    public Cordenadas(int id, double latitud, double longitud, double vel) {
+    public Cordenadas(String id, double latitud, double longitud, double vel) {
         this.id = id;
         this.latitud = latitud;
         this.longitud = longitud;
@@ -19,21 +19,21 @@ public class Cordenadas {
     }
 
     public Cordenadas() {
-        this.id=0;
+        this.id="0";
         this.latitud = 0;
         this.longitud = 0;
         this.velocidad=0;
     }
 
-    public Cordenadas(int id) {
+    public Cordenadas(String id) {
         this.id = id;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

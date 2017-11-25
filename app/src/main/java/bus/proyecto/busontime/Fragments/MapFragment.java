@@ -116,7 +116,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
                     marcadores.remove(i);
                 }
             }else{
-                if(autobuses.get(i).getId()==marcadores.get(i).getId()){
+                if(autobuses.get(i).getId().equals(marcadores.get(i).getId())){
                     marcadores.get(i).setPosicion(autobuses.get(i));
                 }else{
                     marcadores.get(i).getMarcador().remove();

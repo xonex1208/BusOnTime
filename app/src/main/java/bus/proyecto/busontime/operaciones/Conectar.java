@@ -84,7 +84,7 @@ public class Conectar {
             while (inter.hasNext()) {
                 String key = (String) inter.next();
                 JSONObject json = response.getJSONObject(key);
-                int id=Integer.parseInt(key);
+                String id=key;
                 Double latitud=json.getDouble("latitud");
                 Double longitud=json.getDouble("longitud");
                 Double velocidad=json.getDouble("velocidad");

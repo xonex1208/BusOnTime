@@ -11,8 +11,8 @@ import com.google.android.gms.maps.model.internal.zzp;
 
 public class Marcador{
     Marker marcador;
-    int id;
-    public Marcador(int id,Marker marcador) {
+    String id;
+    public Marcador(String id,Marker marcador) {
         this.marcador=marcador;
         this.id=id;
     };
@@ -33,11 +33,11 @@ public class Marcador{
         this.marcador.setPosition(new LatLng(cor.getLatitud(),cor.getLongitud()));
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 }
