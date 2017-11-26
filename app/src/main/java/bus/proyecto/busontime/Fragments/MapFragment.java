@@ -1,12 +1,15 @@
 package bus.proyecto.busontime.Fragments;
 
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,32 +36,32 @@ import bus.proyecto.busontime.operaciones.Marcador;
 import bus.proyecto.busontime.operaciones.SVars;
 
 
-public class MapFragment extends Fragment implements OnMapReadyCallback{
+public class MapFragment extends Fragment implements OnMapReadyCallback {
     private View rootView;
     private MapView mapView;
     private GoogleMap gMap;
     private Address address;
     private Geocoder geocoder;
-    private  MarkerOptions marker;
+    private MarkerOptions marker;
     private Conectar conectar;
-    private ArrayList<Marcador> marcadores=new ArrayList();
+    private ArrayList<Marcador> marcadores = new ArrayList();
     private Context contexto;
 
-    public MapFragment(){
+    public MapFragment() {
 
     }
 
     @SuppressLint("ValidFragment")
-    public MapFragment(Context contexto){
-        this.contexto=contexto;
-        SVars.conectar=new Conectar(contexto,"http://busontime.herokuapp.com");
-        conectar=SVars.conectar;
+    public MapFragment(Context contexto) {
+        this.contexto = contexto;
+        SVars.conectar = new Conectar(contexto, "http://busontime.herokuapp.com");
+        conectar = SVars.conectar;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView=inflater.inflate(R.layout.fragment_map, container, false);
+        rootView = inflater.inflate(R.layout.fragment_map, container, false);
         return rootView;
     }
 
@@ -67,11 +70,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         super.onViewCreated(view, savedInstanceState);
         mapView = (MapView) rootView.findViewById(R.id.map);
 
-        if(conectar==null){
-            conectar= SVars.conectar;
-            contexto=conectar.getContexto();
+        if (conectar == null) {
+            conectar = SVars.conectar;
+            contexto = conectar.getContexto();
         }
-        if (mapView!=null) {
+        if (mapView != null) {
             mapView.onCreate(savedInstanceState);
             mapView.onResume();
             mapView.getMapAsync(this);
@@ -82,10 +85,19 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     @Override
     public void onMapReady(GoogleMap googleMap) {
         gMap = googleMap;
-        gMap.getUiSettings().setMapToolbarEnabled(true);
-        gMap.getUiSettings().setMyLocationButtonEnabled(true);
         gMap.getUiSettings().setCompassEnabled(false);
-        gMap.getUiSettings().setRotateGesturesEnabled(false);
+        gMap.getUiSettings().setMyLocationButtonEnabled(false);
+        if (ActivityCompat.checkSelfPermission(contexto, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(contexto, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        gMap.setMyLocationEnabled(true);
         LatLng lugar = new LatLng(18.95952686779156, -99.58184854534306);
         LatLng sydney = new LatLng(-34, 151);
         marker= new MarkerOptions();

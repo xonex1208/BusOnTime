@@ -88,6 +88,7 @@ public class Iniciar_Sesion extends AppCompatActivity {
                 nombre=conectar.convertirPasajero(response);
                 Toast.makeText(contexto,  "Bievenido: "+nombre.getNombre(), Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Iniciar_Sesion.this, MapasContainer.class);
+                //Intent intent = new Intent(Iniciar_Sesion.this, Inicio.class);
                 startActivity(intent);
             }
         }
