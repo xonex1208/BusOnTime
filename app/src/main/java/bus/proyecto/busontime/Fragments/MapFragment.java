@@ -66,6 +66,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mapView = (MapView) rootView.findViewById(R.id.map);
+
         if(conectar==null){
             conectar= SVars.conectar;
             contexto=conectar.getContexto();
@@ -81,6 +82,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     @Override
     public void onMapReady(GoogleMap googleMap) {
         gMap = googleMap;
+        gMap.getUiSettings().setMapToolbarEnabled(true);
+        gMap.getUiSettings().setMyLocationButtonEnabled(true);
+        gMap.getUiSettings().setCompassEnabled(false);
+        gMap.getUiSettings().setRotateGesturesEnabled(false);
         LatLng lugar = new LatLng(18.95952686779156, -99.58184854534306);
         LatLng sydney = new LatLng(-34, 151);
         marker= new MarkerOptions();
@@ -98,10 +103,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         CameraPosition cameraPosition= new CameraPosition.Builder()
                 .target(lugar)
                 .zoom(16) //limit -->21
-                .bearing(300)  //orientacion de la camara hacia el este 0--365°
+                .bearing(0)  //orientacion de la camara hacia el este 0--365°
                 .tilt(30)  //entre 0 y 90
                 .build();
         gMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
         solicitar.start();
     }
 
