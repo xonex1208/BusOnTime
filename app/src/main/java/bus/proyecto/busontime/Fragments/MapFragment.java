@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -51,12 +52,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     }
 
-    @SuppressLint("ValidFragment")
-    public MapFragment(Context contexto) {
-        this.contexto = contexto;
-        SVars.conectar = new Conectar(contexto, "http://busontime.herokuapp.com");
-        conectar = SVars.conectar;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -107,13 +102,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         marker.snippet("Para ubicada en Tenancingo");
         marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_paradas));
         gMap.addMarker(marker);
-
+        Location pos=gMap.getMyLocation();
+        LatLng lugar2=new LatLng(pos.getLatitude(),pos.getLongitude());
 
         //Para customizar el punto
         //El nivel 15 es de calles, 10 de ciudades,etc.
         //tilt de la camara hacia X grados
-        CameraPosition cameraPosition= new CameraPosition.Builder()
-                .target(lugar)
+       CameraPosition cameraPosition= new CameraPosition.Builder()
+                .target(lugar2)
                 .zoom(16) //limit -->21
                 .bearing(0)  //orientacion de la camara hacia el este 0--365°
                 .tilt(30)  //entre 0 y 90
@@ -151,6 +147,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             Marker maker=gMap.addMarker(markerOptions);
             marcadores.add(new Marcador(cor.getId(),maker));
         }
+
         Log.d("Actualizado","Los marcadores se actualizaron");
     }
 

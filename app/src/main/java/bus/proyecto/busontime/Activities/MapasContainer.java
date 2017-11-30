@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 
 import bus.proyecto.busontime.Fragments.MapFragment;
 import bus.proyecto.busontime.R;
+import bus.proyecto.busontime.operaciones.Conectar;
+import bus.proyecto.busontime.operaciones.SVars;
 
 public class MapasContainer extends AppCompatActivity {
     Fragment currentFragment;
@@ -20,7 +22,8 @@ public class MapasContainer extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (savedInstanceState==null){
-            currentFragment= new MapFragment(this);
+            currentFragment= new MapFragment();
+            SVars.conectar = new Conectar(this, "http://busontime.herokuapp.com");
             changeFragment(currentFragment);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
