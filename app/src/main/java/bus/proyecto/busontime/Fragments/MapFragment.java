@@ -14,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.PointerIcon;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -102,19 +103,40 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         marker.snippet("Para ubicada en Tenancingo");
         marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_paradas));
         gMap.addMarker(marker);
-        Location pos=gMap.getMyLocation();
-        LatLng lugar2=new LatLng(pos.getLatitude(),pos.getLongitude());
 
-        //Para customizar el punto
+        if(SVars.posicion==null) {
+            Location pos = gMap.getMyLocation();
+            if(pos!=null) {
+                LatLng posicion = new LatLng(pos.getLatitude(), pos.getLongitude());
+                SVars.posicion = new CameraPosition.Builder()
+                        .target(posicion)
+                        .zoom(16) //limit -->21
+                        .bearing(0)  //orientacion de la camara hacia el este 0--365°
+                        .tilt(30)  //entre 0 y 90
+                        .build();
+
+            }else{
+                SVars.posicion = new CameraPosition.Builder()
+                        .target(lugar)
+                        .zoom(16) //limit -->21
+                        .bearing(0)  //orientacion de la camara hacia el este 0--365°
+                        .tilt(30)  //entre 0 y 90
+                        .build();
+            }
+
+        }
+
+        gMap.setOnCameraMoveListener(new GoogleMap.OnCameraMoveListener() {
+            @Override
+            public void onCameraMove() {
+                SVars.posicion=gMap.getCameraPosition();
+            }
+        });
+        //Para customizar el puntod
         //El nivel 15 es de calles, 10 de ciudades,etc.
         //tilt de la camara hacia X grados
-       CameraPosition cameraPosition= new CameraPosition.Builder()
-                .target(lugar2)
-                .zoom(16) //limit -->21
-                .bearing(0)  //orientacion de la camara hacia el este 0--365°
-                .tilt(30)  //entre 0 y 90
-                .build();
-        gMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+        gMap.animateCamera(CameraUpdateFactory.newCameraPosition(SVars.posicion));
+
 
         solicitar.start();
     }
@@ -141,13 +163,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         }
         MarkerOptions markerOptions=new MarkerOptions();
         markerOptions.draggable(false);
+        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
         for(;i<autobuses.size();i++){
             Cordenadas cor=autobuses.get(i);
             markerOptions.position(new LatLng(cor.getLatitud(),cor.getLongitud()));
             Marker maker=gMap.addMarker(markerOptions);
             marcadores.add(new Marcador(cor.getId(),maker));
         }
-
         Log.d("Actualizado","Los marcadores se actualizaron");
     }
 
