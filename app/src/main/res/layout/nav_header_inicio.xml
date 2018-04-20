@@ -15,7 +15,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="66dp"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         app:srcCompat="@mipmap/ic_icono" />
@@ -25,14 +25,16 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:textColor="@color/icons"
-        android:text="Android Studio"
+        android:textSize="20dp"
+        android:text="Bienvenido"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewND"
         android:layout_width="wrap_content"
         android:textColor="@color/icons"
         android:layout_height="wrap_content"
-        android:text="android.studio@android.com" />
+        android:text=""
+        />
 
 </LinearLayout>

@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -79,18 +80,21 @@ public class Iniciar_Sesion extends AppCompatActivity {
     };
 
     private Response.Listener<String> respuesta=new Response.Listener<String>() {
-        Pasajero nombre;
+        Pasajero datos;
         @Override
         public void onResponse(String response) {
-            if(response.equals("Usuario o contraseña incorectos")) {
+            if(response.equals("Usuario o contraseña incorrectos")) {
                 Toast.makeText(contexto, response + "", Toast.LENGTH_LONG).show();
             }else {
-                nombre=conectar.convertirPasajero(response);
-                Toast.makeText(contexto,  "Bievenido: "+nombre.getNombre(), Toast.LENGTH_LONG).show();
+                datos =conectar.convertirPasajero(response);
+                String datosU="Hola paps";
+                Toast.makeText(contexto,  "Bienvenido: "+ datos.getNombre(), Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Iniciar_Sesion.this, MapasContainer.class);
+                intent.putExtra("datosUsu",datosU);
                 //Intent intent = new Intent(Iniciar_Sesion.this, Inicio.class);
                 startActivity(intent);
             }
         }
     };
-}
+
+ }

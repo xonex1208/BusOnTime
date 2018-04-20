@@ -221,7 +221,7 @@ public class Registro extends AppCompatActivity {
     private Response.ErrorListener onError = new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-            Toast.makeText(contexto, "Error al registrarse", Toast.LENGTH_LONG).show();
+            Toast.makeText(contexto, "Error al registrarse, intentalo de nuevo", Toast.LENGTH_LONG).show();
         }
     };
 
