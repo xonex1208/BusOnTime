@@ -4,6 +4,7 @@ package bus.proyecto.busontime.Fragments;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -31,6 +32,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
+import bus.proyecto.busontime.Activities.PedirParadas;
 import bus.proyecto.busontime.R;
 import bus.proyecto.busontime.operaciones.Conectar;
 import bus.proyecto.busontime.operaciones.Cordenadas;
@@ -136,7 +138,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         //El nivel 15 es de calles, 10 de ciudades,etc.
         //tilt de la camara hacia X grados
         gMap.animateCamera(CameraUpdateFactory.newCameraPosition(SVars.posicion));
-
+        gMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                startActivity(new Intent(contexto, PedirParadas.class));
+                return true;
+            }
+        });
 
         solicitar.start();
     }
@@ -164,6 +172,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         MarkerOptions markerOptions=new MarkerOptions();
         markerOptions.draggable(false);
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+
         for(;i<autobuses.size();i++){
             Cordenadas cor=autobuses.get(i);
             markerOptions.position(new LatLng(cor.getLatitud(),cor.getLongitud()));

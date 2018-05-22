@@ -50,10 +50,10 @@ public class MapasContainer extends AppCompatActivity implements NavigationView.
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        View view = navigationView.getHeaderView(0);
+        View header = navigationView.getHeaderView(0);
 
 
-        datosUsers=(TextView)view.findViewById(R.id.textViewND);
+        datosUsers=(TextView)header.findViewById(R.id.textViewND);
 
         Bundle bundle = getIntent().getExtras();
         if(bundle!=null){
